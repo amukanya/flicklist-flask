@@ -87,14 +87,17 @@ def crossoff_movie():
 
 @app.route("/add", methods=['POST'])
 def add_movie():
+    #pulling value from the form
     new_movie = request.form['new-movie']
 
+    #remove unsafe characters
     new_movie = cgi.escape(new_movie)
-    # TODOhigh
-    # 'escape' the user's input so that if they typed HTML, it doesn't mess up our site
     
-    # TODOcritical
-    # if the user typed nothing at all, redirect and tell them the error
+    #handles empty values
+    if new_movie  =="":
+        error = "You did not enter a name."
+        return redirect("/?error=" + error)
+ 
 
     # TODO 
     # if the user wants to add a terrible movie, redirect and tell them not to add it b/c it sucks
