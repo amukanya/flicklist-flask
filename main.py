@@ -43,8 +43,8 @@ def crossoff_movie():
 
         # redirect to homepage, and include error as a query parameter in the URL
         return redirect("/?error=" + error)
-        
-    return render_template('crossoff.html', cross_off_movie = crossed_off_movie)
+
+    return render_template('crossoff.html', crossed_off_movie = crossed_off_movie)
 
 
 @app.route("/add", methods=['POST'])
